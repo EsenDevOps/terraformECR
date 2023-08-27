@@ -25,7 +25,6 @@ resource "aws_iam_role_policy_attachment" "ecs_autoscale" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceAutoscaleRole"
 }
 
-# Auto Scaling Target
 resource "aws_appautoscaling_target" "ecs_target" {
   max_capacity       = 4
   min_capacity       = 1
@@ -36,7 +35,6 @@ resource "aws_appautoscaling_target" "ecs_target" {
   depends_on = [aws_ecs_service.web_service]
 }
 
-# Scaling Policies
 resource "aws_appautoscaling_policy" "scale_out_policy" {
   name               = "scale-out-policy"
   policy_type        = "StepScaling"
@@ -75,7 +73,6 @@ resource "aws_appautoscaling_policy" "scale_in_policy" {
   }
 }
 
-# CloudWatch Alarms for Auto Scaling
 resource "aws_cloudwatch_metric_alarm" "cpu_high" {
   alarm_name          = "ecs-service-cpu-high"
   comparison_operator = "GreaterThanThreshold"

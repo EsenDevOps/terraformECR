@@ -4,8 +4,8 @@ variable "aws_region" {
   default     = "us-west-1"
 }
 
-variable "docker_image_path" {
-  description = "Path to the Docker image we want to use in our ECS task definition. This is a required input"
+variable "docker_image" {
+  description = "Docker image we want to use in our ECS task definition. This is a required input"
   type        = string
 }
 

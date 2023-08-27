@@ -1,3 +1,4 @@
+# Get the ecs AMI 
 data "aws_ami" "amazon_linux" {
   most_recent = true
 
@@ -66,9 +67,9 @@ resource "aws_iam_instance_profile" "ecs_service_role" {
 }
 
 resource "aws_launch_configuration" "lc" {
-  name          = "test_ecs"
+  name          = "ecs_launch_config"
   image_id      = data.aws_ami.amazon_linux.id
-  instance_type = "t2.micro"
+  instance_type = "t3.small"
   lifecycle {
     create_before_destroy = true
   }
@@ -83,7 +84,7 @@ EOF
 }
 
 resource "aws_autoscaling_group" "asg" {
-  name                      = "test-asg"
+  name                      = "asg"
   launch_configuration      = aws_launch_configuration.lc.name
   min_size                  = 1
   max_size                  = 2

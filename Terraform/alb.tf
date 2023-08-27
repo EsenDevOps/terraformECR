@@ -7,7 +7,6 @@ resource "aws_lb" "web_lb" {
   subnets            = var.subnet_ids
 }
 
-# Target Group
 resource "aws_lb_target_group" "web_tg" {
   name     = "web-tg"
   port     = 80
@@ -15,7 +14,6 @@ resource "aws_lb_target_group" "web_tg" {
   vpc_id   = var.vpc_id
 }
 
-# Load Balancer Listener
 resource "aws_lb_listener" "front_end" {
   load_balancer_arn = aws_lb.web_lb.arn
   port              = "80"
@@ -27,7 +25,6 @@ resource "aws_lb_listener" "front_end" {
   }
 }
 
-# Security Group for Load Balancer
 resource "aws_security_group" "lb_sg" {
   name        = "load-balancer-sg"
   description = "Allow all inbound traffic"
