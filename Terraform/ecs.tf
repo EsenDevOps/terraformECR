@@ -29,7 +29,7 @@ resource "aws_ecs_task_definition" "web_task" {
   container_definitions    = jsonencode([
     {
       name  = "web-app"
-      image = var.docker_image_path
+      image = "nginx:latest"
       portMappings = [
         {
           containerPort = 80
