@@ -19,6 +19,6 @@ Web App: A simple application displaying "Hello, DevOps!" on the landing page.
 ```terraform apply```
 
 ### Features
-Implements auto-scaling based on CPU utilization.
-Uses an Application Load Balancer (ALB) for distributing traffic.
-Advanced monitoring via Amazon CloudWatch.
+- Implements auto-scaling based on CPU utilization.
+- Uses an Application Load Balancer (ALB) for distributing traffic.
+- Advanced monitoring via Amazon CloudWatch.
