@@ -1,4 +1,4 @@
-# Vercara Project
+# ECR Project
 
 This project deploys a web application on AWS ECS to demonstrate scalability and automation using Terraform.
 
